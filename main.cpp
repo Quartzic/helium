@@ -105,14 +105,15 @@ int main(int argc, char **argv) {
                 // Apply the zoom level
                 cropRectangle.width = faceArea.width * zoomLevel;
                 cropRectangle.height = faceArea.height * zoomLevel;
-                cropRectangle.x -= (faceArea.width / zoomLevel);
-                cropRectangle.y -= (faceArea.height / zoomLevel);
+
+                cropRectangle.x += ((faceArea.width - cropRectangle.width) / 2);
+                cropRectangle.y += ((faceArea.height - cropRectangle.height) / 2);
 
                 // If the new crop rectangle would try to read nonexistent pixels, skip
                 if ((cropRectangle.x < 0) || (cropRectangle.y < 0) ||
                     ((cropRectangle.x + cropRectangle.width) > inputImage.size().width) ||
                     ((cropRectangle.y + cropRectangle.height) > inputImage.size().height)) {
-                    std::cerr << "Face " << faceArea << " could not be saved (zoom too small)" << std::endl;
+                    std::cerr << "Face " << faceArea << " could not be saved (zoom too large)" << std::endl;
                     continue;
                 }
 
