@@ -52,10 +52,13 @@ int main(int argc, char **argv) {
     return -1;
   }
 
-  // Error if output path is not a directory
+  // Ensure the output path exists or can be created
   if (!fs::is_directory(outputPath)) {
-    std::cerr << outputPath << " is not a directory." << std::endl;
-    return -1;
+    if (!fs::create_directory(outputPath)) {
+      std::cerr << outputPath << " is not a directory and could not be created."
+                << std::endl;
+      return -1;
+    }
   }
 
   // Load the input image
