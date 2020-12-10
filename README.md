@@ -2,11 +2,9 @@
 Helium allows you to quickly extract cropped faces from photos, which is useful for profile pictures, ID cards, and other situations in which you need standardization.
 
 # Usage
-Run `helium` to see the available functions.
+Run `helium` to see the available arguments.
 
-Run `helium crop-faces <arguments>` to crop a photo.
-
-Run `helium crop-faces --help` to see available arguments.
+Run `helium --input <photo_path>` to crop a photo using the defaults.
 
 # Build
 ```
