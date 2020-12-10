@@ -10,7 +10,7 @@ Run `helium --input <photo_path>` to crop a photo using the defaults.
 ```
 git clone https://github.com/Quartzic/helium.git
 cd helium
-cmake --build .
+cmake . && cmake --build .
 ```
 
 # Requirements
